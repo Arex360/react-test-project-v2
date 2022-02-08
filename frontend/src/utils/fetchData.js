@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const getDataApi = async (url, token) => {
-	const res = await axios.get(`http://localhost:5000/api/${url}`, {
+	const res = await axios.get(`/api/${url}`, {
 		headers: { Authorization: token },
 	})
 
@@ -9,7 +9,7 @@ export const getDataApi = async (url, token) => {
 }
 
 export const postDataApi = async (url, post, token) => {
-	const res = await axios.post(`http://localhost:5000/api/${url}`, post, {
+	const res = await axios.post(`/api/${url}`, post, {
 		headers: { Authorization: token },
 	})
 
@@ -17,7 +17,7 @@ export const postDataApi = async (url, post, token) => {
 }
 
 export const putDataApi = async (url, post, token) => {
-	const res = await axios.put(`http://localhost:5000/api/${url}`, post, {
+	const res = await axios.put(`/api/${url}`, post, {
 		headers: { Authorization: token },
 	})
 
@@ -25,7 +25,7 @@ export const putDataApi = async (url, post, token) => {
 }
 
 export const patchDataApi = async (url, post, token) => {
-	const res = await axios.patch(`http://localhost:5000/api/${url}`, post, {
+	const res = await axios.patch(`/api/${url}`, post, {
 		headers: { Authorization: token },
 	})
 
@@ -33,14 +33,14 @@ export const patchDataApi = async (url, post, token) => {
 }
 
 export const deleteDataApi = async (url, token) => {
-	const res = await axios.delete(`http://localhost:5000/api/${url}`, {
+	const res = await axios.delete(`/api/${url}`, {
 		headers: { Authorization: token },
 	})
 
 	return res
 }
 export const getVideosFromFirebase = (username)=>{
-	axios.get('http://localhost:5000/api/vid/'+username).then(e=>{
+	axios.get('/api/vid/'+username).then(e=>{
 		return e.data
 	})
 }

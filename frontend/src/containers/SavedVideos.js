@@ -10,17 +10,18 @@ const SavedVideos = () => {
 	const user = useSelector(state=>state.user)
 	let [videos,setVideo] = useState([])
 	useEffect(()=>{
-		const {username} = user
-	    axios.get('http://localhost:5000/api/vid/'+username).then(e=>{
-			e = e.data
-			let vids = []
-			for(var key in e){
-				const {actor,value} = e[key]
-				vids.push(<VideoCard actor={actor} value={value}/>)
-			}
-			setVideo(vids)
-		})
-
+		let username = localStorage.getItem("username")
+		if(username!=''){
+			axios.get('/api/vid/'+username).then(e=>{
+				e = e.data
+				let vids = []
+				for(var key in e){
+					const {actor,value} = e[key]
+					vids.push(<VideoCard actor={actor} value={value}/>)
+				}
+				setVideo(vids)
+			})
+		}
 	},[])
 	return (
 		<div className="saved_videos">

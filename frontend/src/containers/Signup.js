@@ -25,6 +25,7 @@ const Signup = () => {
 		const { name, value } = e.target
 		if(name == "fullname"){
 			setUser(value)
+			localStorage.setItem("username",value)
 		}
 		setUserData({ ...userData, [name]: value })
 	}

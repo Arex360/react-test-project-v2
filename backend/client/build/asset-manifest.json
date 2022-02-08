@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ba780b10.css",
+    "main.js": "/static/js/main.058bcde8.js",
+    "static/media/anna-actor.png": "/static/media/anna-actor.d21f51032bf664375d62.png",
+    "static/media/books-background.png": "/static/media/books-background.d8857f468f360e8dc723.png",
+    "static/media/skye-actor.png": "/static/media/skye-actor.58a58ab1fd6800c5fdd4.png",
+    "static/media/peter-actor.png": "/static/media/peter-actor.7f2b92326c20e51724da.png",
+    "static/media/space-background.png": "/static/media/space-background.b82b9b9af1c58fdfedcd.png",
+    "static/media/yoyo-actor.png": "/static/media/yoyo-actor.84606cacea2150f8d45f.png",
+    "static/media/may-actor.png": "/static/media/may-actor.30fd4e72c3a6f87aa75c.png",
+    "static/media/vincent-actor.png": "/static/media/vincent-actor.70e27509bbd1000e174f.png",
+    "static/media/meeting-room-background.png": "/static/media/meeting-room-background.73b5c3da05a2f6080977.png",
+    "static/media/office-background.png": "/static/media/office-background.546f08518259aeb274e8.png",
+    "static/media/grey-gradient-background.png": "/static/media/grey-gradient-background.dda112436b0649ae2e09.png",
+    "static/media/desk-background.png": "/static/media/desk-background.6bbf4fbd2b7a8ca8ea25.png",
+    "static/media/mike-actor.png": "/static/media/mike-actor.258cffdd3a4038f1d77a.png",
+    "static/media/noise-background.png": "/static/media/noise-background.0d5f6e95acafa425958c.png",
+    "static/media/VideoImg1.png": "/static/media/VideoImg1.5d1044666770cc749f13.png",
+    "static/media/english-asian-voice-sample-1.mp3": "/static/media/english-asian-voice-sample-1.24f2ae48521f4a68cd4c.mp3",
+    "static/media/english-voice-sample-1.mp3": "/static/media/english-voice-sample-1.c3f6426567a1082dd2d3.mp3",
+    "static/media/ProfileEdit.png": "/static/media/ProfileEdit.efb482850ad74456fb49.png",
+    "static/media/american-voice-sample-1.mp3": "/static/media/american-voice-sample-1.c5ca9fa09e87b4ae736e.mp3",
+    "index.html": "/index.html",
+    "main.ba780b10.css.map": "/static/css/main.ba780b10.css.map",
+    "main.058bcde8.js.map": "/static/js/main.058bcde8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ba780b10.css",
+    "static/js/main.058bcde8.js"
+  ]
+}
