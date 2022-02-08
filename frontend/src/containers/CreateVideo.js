@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { SaveRecord } from '../utils/uploadData'
+import OutlineButton from '../components/outlineButton'
 const CreateVideo = () => {
 	const { pathname } = useLocation()
 	const [value, setValue] = useState('')
@@ -54,11 +55,27 @@ const CreateVideo = () => {
 	}
 	return (
 		<>
-			<div className="create_video" style={{opacity:`${editMode ? '0.3':'1'}`}}>
-				{editMode &&  <div className='blur'>
-
+			<div className="create_video" >
+				{editMode &&  <div className='blur' >
+					<h2 onClick={()=>setEditMode(false)} style={{color:'#3860AD'}}>Saying Hi to my customers</h2>
+					<hr></hr>
+					<div className='para'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque dolorum tempora inventore libero facilis voluptas culpa, recusandae qui vel placeat possimus explicabo repudiandae incidunt provident nesciunt eos minima ducimus corporis laboriosam sed unde tenetur est! Debitis n
+				   </div>
+				   <hr></hr>
+				   <div className='options'>
+				   <OutlineButton title={"Email"}/>	 
+				   <OutlineButton title={"Marketing"}/>	 
+				   <OutlineButton title={"Greeting"}/>	 
+				   <OutlineButton title={"Email"}/>	 
+				   <OutlineButton title={"Marketing"}/>	   
+				   <OutlineButton title={"Greeting"}/>
+				  </div>
+				  <div className="sbx">
+				  <button className='sb' >Save</button>
+					  </div>
 				</div>}
-				<div className="main_header">
+				{!editMode && <div className="main_header" style={{opacity:`${editMode ? '0.2':'1'}`}}>
 					<div className='titleHeader'>
 						<input onChange={e=>setVideoTitle(e.target.value)} placeholder='Saying Hi to my customers' style={{border:'none',outline:'none'}} className="title"/>
 						<Dropdown options={options} value={defaultOption} placeholder="Select an option" onChange={e=>{
@@ -72,9 +89,9 @@ const CreateVideo = () => {
 						<button>Cancel</button>
 						<button onClick={uploadRecord}>Save</button>
 					</div>
-				</div>
+				</div>}
 
-				<div className="row">
+				<div className="row" style={{opacity:`${editMode ? '0.2':'1'}`}}>
 					<div className="col-lg-6">
 						<div className="image_section">
 							<div className="img_container">

@@ -78,8 +78,22 @@ h1 {
   }
   .blur{
 	  position: absolute;
+	  padding: 2%;
 	  width: 100%;
 	  height: 100vh;
-	  opacity: 0;
 	  z-index: 10;
+  }
+  .blur hr{
+	  border-color: #3860AD;
+	  background: #3860AD;
+	  width: 30%;
+  }
+  .para{
+	  width: 40%;
+  }
+  .out{
+	  padding: 1px 15px;
+	  opacity: 0.6;
+	  border-radius: 7px;
+	  margin-right: 10px;
   }
