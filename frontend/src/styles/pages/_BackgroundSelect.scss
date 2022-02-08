@@ -1,0 +1,103 @@
+.background_select {
+	.tabs {
+		padding: 0;
+		margin-left: -15px;
+	
+		@include large-screen-phone {
+			margin-left: 0;
+		}
+	
+		.tab {
+			width: 100%;
+			color: white;
+			overflow: hidden;
+			position: relative;
+	
+			.tab-label {
+				display: flex;
+				justify-content: space-between;
+				padding: 1em;
+				font-weight: bold;
+				cursor: pointer;
+				color: #999999;
+		
+				&::after {
+					content: "❯";
+					width: 1em;
+					height: 1em;
+					text-align: center;
+					transition: all 0.35s;
+				}
+			}
+		}
+
+		.active .img_container{
+			border: 2px solid #3860ad;
+		}
+		
+		.tab-content {
+			max-height: 0;
+			padding: 0 1em;
+			color: #2c3e50;
+			background: white;
+			transition: all 0.35s;
+			display: flex;
+			flex-wrap: wrap;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		}
+	
+		input:checked {
+			&+ .tab-label {
+				color: #3860ad;
+				position: absolute;
+				width: 100%;
+	
+				&::after {
+					transform: rotate(-90deg);
+					position: absolute;
+					right: 20px;
+				}
+			}
+	
+			&~ .tab-content {
+				max-height: 100%;
+				padding: 1em;
+				background: #EBF2FF;
+				border-radius: 15px;
+				padding-bottom: 40px;
+				border-bottom: none;
+				margin-bottom: 25px;
+			}
+		}
+	}
+
+	.background_select_card {
+		margin-top: 50px;
+		padding-left: 0;
+		cursor: pointer;
+		margin-bottom: -40px;
+
+		.img_container {
+			width: 95%;
+			border: 1px solid #e8e8e8;
+			display: flex;
+			align-items: flex-end;
+			justify-content: center;
+			border-radius: 6px;
+
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		h6 {
+			text-align: center;
+			font-weight: 500;
+			font-size: 15px;
+			line-height: 18px;
+			color: #666666;
+			margin-top: 10px;
+		}
+	}
+}
