@@ -11,7 +11,7 @@ const CreateVideo = () => {
 	const [value, setValue] = useState('')
 	const { speak } = useSpeechSynthesis()
 	const videoState = useSelector(state => state.video);
-
+    let [editMode,setEditMode] = useState(true)
 	const isActive = (pn) => {
 		if (pn === pathname) return 'active'
 	}
@@ -21,7 +21,7 @@ const CreateVideo = () => {
 	const defaultOption = options[0];
 	return (
 		<>
-			<div className="create_video" style={{opacity:'0.3'}}>
+			<div className="create_video" style={{opacity:`${editMode ? '0.3':'1'}`}}>
 				<div className="main_header">
 					<div className='titleHeader'>
 						<input placeholder='Saying Hi to my customers' style={{border:'none',outline:'none'}} className="title"/>
