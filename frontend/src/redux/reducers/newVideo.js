@@ -3,7 +3,7 @@ import Actor1 from '../../assets/actors/yoyo-actor.png';
 import Background1 from '../../assets/backgrounds/office-background.png';
 const initialState = {
     actor: Actor1,
-    voice: null,
+    voice: 0,
     alignment: 'center',
     background: Background1,
 }

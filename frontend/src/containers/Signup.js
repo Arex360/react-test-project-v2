@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { signup } from './../redux/actions/authAction'
-
+import {setUser as setUserRedux} from '../redux/actions/account'
 const Signup = () => {
 	const { auth } = useSelector((state) => state)
 	const initialState = { fullname: '', email: '', password: '' }
 	const [userData, setUserData] = useState(initialState)
 	const { fullname, email, password } = userData
+	const userState = useSelector(state=>state.user)
+	const [active,setUser] = useState(userState.username ? userState.username: '')
 
 	const navigate = useNavigate()
 	const dispatch = useDispatch()
@@ -16,10 +18,14 @@ const Signup = () => {
 		if (auth.token) {
 			navigate('/')
 		}
-	}, [auth.token, navigate])
+		dispatch(setUserRedux(active))
+	}, [auth.token, navigate,active])
 
 	const handleChangeInput = (e) => {
 		const { name, value } = e.target
+		if(name == "fullname"){
+			setUser(value)
+		}
 		setUserData({ ...userData, [name]: value })
 	}
 
