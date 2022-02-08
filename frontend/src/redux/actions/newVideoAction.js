@@ -1,4 +1,4 @@
-import { SET_ACTOR, SET_VOICE, SET_ALIGNMENT, SET_BACKGROUND } from '../reducers/types';
+import { SET_ACTOR, SET_VOICE, SET_ALIGNMENT, SET_BACKGROUND ,SET_TITLE} from '../reducers/types';
 
 export const setActor = (actor) => async (dispatch) => {
     dispatch({ type: SET_ACTOR, payload: actor });
@@ -14,4 +14,7 @@ export const setAlignment = (alignment) => async (dispatch) => {
 
 export const setBackground = (bg) => async (dispatch) => {
     dispatch({ type: SET_BACKGROUND, payload: bg })
+}
+export const setTitle = (title)=> async (dispatch)=>{
+    dispatch({type: SET_TITLE,payload:title})
 }

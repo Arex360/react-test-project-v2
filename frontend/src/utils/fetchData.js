@@ -39,3 +39,8 @@ export const deleteDataApi = async (url, token) => {
 
 	return res
 }
+export const getVideosFromFirebase = (username)=>{
+	axios.get('http://localhost:5000/api/vid/'+username).then(e=>{
+		return e.data
+	})
+}

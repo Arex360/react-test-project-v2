@@ -5,3 +5,4 @@ export const SET_VOICE = 'SET_VOICE';
 export const SET_ALIGNMENT = 'SET_ALIGNMENT';
 export const SET_BACKGROUND = 'SET_BACKGROUND';
 export const SET_USER = 'SET_USER'
+export const SET_TITLE = 'SET_TITLE'

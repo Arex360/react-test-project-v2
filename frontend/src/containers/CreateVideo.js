@@ -4,16 +4,19 @@ import { useSpeechSynthesis } from 'react-speech-kit'
 import { RiArrowDropDownLine } from 'react-icons/ri'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import {setTitle as setTitleRedux} from '../redux/actions/newVideoAction'
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 import { SaveRecord } from '../utils/uploadData'
 import OutlineButton from '../components/outlineButton'
 const CreateVideo = () => {
+	
 	const { pathname } = useLocation()
 	const [value, setValue] = useState('')
 	const [pitch, setPitch] = useState(1);
 	const [videoTitle,setVideoTitle] = useState('')
     const [rate, setRate] = useState(1);
+   
 	const {  speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
 
 	})
@@ -28,10 +31,13 @@ const CreateVideo = () => {
 		'Saying Hi to my customer', 'My another video', 'My cool App'
 	  ];
 	const defaultOption = options[0];
+	const [active, setVidTitle] = useState(videoState.title ? videoState.title : '');
+	const dispatch = useDispatch()
 	useEffect(()=>{
+		dispatch(setTitleRedux(active))
 		console.log('voices')
 		console.log(typeof(voices))
-	},[])
+	},[active])
 	let Speak = ()=>{
 		setSpeech(videoState.voice)
 		let voice = voices[videoState.voice]
@@ -49,7 +55,8 @@ const CreateVideo = () => {
 			alignment: alignment,
 			background: background,
 			voice: voice,
-			title: videoTitle
+			title: videoTitle,
+			value: value
 		}
 		SaveRecord('/videos',payload)
 	}
@@ -77,7 +84,10 @@ const CreateVideo = () => {
 				</div>}
 				{!editMode && <div className="main_header" style={{opacity:`${editMode ? '0.2':'1'}`}}>
 					<div className='titleHeader'>
-						<input onChange={e=>setVideoTitle(e.target.value)} placeholder='Saying Hi to my customers' style={{border:'none',outline:'none'}} className="title"/>
+						<input onChange={e=>{
+							setVidTitle(e.target.value)
+							setVideoTitle(e.target.value)}
+							} placeholder='Saying Hi to my customers' style={{border:'none',outline:'none'}} className="title"/>
 						<Dropdown options={options} value={defaultOption} placeholder="Select an option" onChange={e=>{
 							let input = document.querySelector('.title')
 							input.value = e.value

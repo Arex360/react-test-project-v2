@@ -1,12 +1,12 @@
-let VideoCard = ({img})=>{
+let VideoCard = ({actor,value})=>{
     return(
         <div className="video_card">
 					<div className="img_container">
-						<img src={img} alt="VideoImg1" />
+						<img src={actor} alt="VideoImg1" />
 					</div>
 
 					<div className="content">
-						<h2>Saying Hi to users!</h2>
+						<h2>{value}</h2>
 
 						<div className="buttons_row">
 							<button>Email</button>
