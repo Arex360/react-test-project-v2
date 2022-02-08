@@ -6,10 +6,12 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import { SaveRecord } from '../utils/uploadData'
 const CreateVideo = () => {
 	const { pathname } = useLocation()
 	const [value, setValue] = useState('')
 	const [pitch, setPitch] = useState(1);
+	const [videoTitle,setVideoTitle] = useState('')
     const [rate, setRate] = useState(1);
 	const {  speak, cancel, speaking, supported, voices } = useSpeechSynthesis({
 
@@ -17,7 +19,7 @@ const CreateVideo = () => {
 	const [speechIndex,setSpeech] = useState(0);
 	const videoState = useSelector(state => state.video);
 	const userState = useSelector(state => state.user)
-    let [editMode,setEditMode] = useState(false)
+    let [editMode,setEditMode] = useState(true)
 	const isActive = (pn) => {
 		if (pn === pathname) return 'active'
 	}
@@ -35,12 +37,30 @@ const CreateVideo = () => {
 		//alert(userState.username)
 		speak({ text: value, voice, rate, pitch})
 	}
+	let uploadRecord = ()=>{
+		console.log(userState)
+		console.log(videoState)
+		const {username} = userState
+		const {actor,alignment,background,voice} = videoState
+		let payload = {
+			username: username,
+			actor: actor,
+			alignment: alignment,
+			background: background,
+			voice: voice,
+			title: videoTitle
+		}
+		SaveRecord('/videos',payload)
+	}
 	return (
 		<>
 			<div className="create_video" style={{opacity:`${editMode ? '0.3':'1'}`}}>
+				{editMode &&  <div className='blur'>
+
+				</div>}
 				<div className="main_header">
 					<div className='titleHeader'>
-						<input placeholder='Saying Hi to my customers' style={{border:'none',outline:'none'}} className="title"/>
+						<input onChange={e=>setVideoTitle(e.target.value)} placeholder='Saying Hi to my customers' style={{border:'none',outline:'none'}} className="title"/>
 						<Dropdown options={options} value={defaultOption} placeholder="Select an option" onChange={e=>{
 							let input = document.querySelector('.title')
 							input.value = e.value
@@ -50,7 +70,7 @@ const CreateVideo = () => {
 
 					<div className="buttons">
 						<button>Cancel</button>
-						<button onClick={()=>alert(videoState.alignment)}>Save</button>
+						<button onClick={uploadRecord}>Save</button>
 					</div>
 				</div>
 
