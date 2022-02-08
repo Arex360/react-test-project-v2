@@ -41,13 +41,14 @@
 
 	.videos_row {
 		margin: 30px 10px;
-
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 		.video_card {
 			width: 300px;
 			padding: 5px;
 			background: #f4f4f4;
 			border-radius: 6px;
-
+			margin-top: 10px;
 			@include small-screen-phone {
 				width: 100%;
 			}
