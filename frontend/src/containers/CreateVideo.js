@@ -21,11 +21,14 @@ const CreateVideo = () => {
 	const defaultOption = options[0];
 	return (
 		<>
-			<div className="create_video">
+			<div className="create_video" style={{opacity:'0.3'}}>
 				<div className="main_header">
 					<div className='titleHeader'>
 						<input placeholder='Saying Hi to my customers' style={{border:'none',outline:'none'}} className="title"/>
-						<Dropdown options={options} value={defaultOption} placeholder="Select an option" />;
+						<Dropdown options={options} value={defaultOption} placeholder="Select an option" onChange={e=>{
+							let input = document.querySelector('.title')
+							input.value = e.value
+						}}/>;
 						<RiArrowDropDownLine  className="icon" />
 					</div>
 
